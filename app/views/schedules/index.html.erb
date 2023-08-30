@@ -1,0 +1,53 @@
+<h3>Schedule app</h3>
+
+<div Class="container">
+  <h6>Appointment list</h6>
+
+  <div>
+    <%= link_to "Add new", :new_schedule, class: "btn btn-secondary btn-sm mt-1 mb-1" %>
+  </div>
+
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Start date</th>
+        <th>End date</th>
+        <th>All day</th>
+        <th>Update date</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @schedules.each do |schedule| %>
+        <tr>
+          <td><%= schedule.id %></td>
+          <td><%= schedule.title %></td>
+          <td><%= l schedule.start_date, format: :short %></td>
+          <td><%= l schedule.end_date, format: :short %></td>
+          <td><%= boolean_display(schedule. all_day) %></td>
+          <td><%= l schedule.updated_at, format: :default %></td>
+          <td>
+            <%= link_to "reference", schedule %>
+          </td>
+          <td>
+            <%= link_to "edit", [:edit, schedule] %>
+          </td>
+          <td>
+            <%= link_to "delete", schedule, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <footer>
+    <ul class="list-group mb-3 count">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Appointment total<span class="badge bg-primary rounded-pill"><%= @count %></span>
+      </li>
+      <li>today's date: <%= l @now, format: :short %></li>
+    </ul>
+  </footer>
+</div>
