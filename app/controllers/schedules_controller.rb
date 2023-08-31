@@ -1,7 +1,7 @@
 class SchedulesController < ApplicationController
   def index
     @schedules = Schedule.all
-    @count = Schedule.count()
+    @count = Schedule.count
     @now = Time.now
   end
 
@@ -12,9 +12,11 @@ class SchedulesController < ApplicationController
   def create
     @schedule = Schedule.new(params.require(:schedule).permit(:title, :start_date, :end_date, :all_day, :memo))
     if @schedule.save
+      flash[:notice] = "Added schedule"
       redirect_to :schedules
     else
-      render :new
+      flash[:alert] = "Unable to register appointment"
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -29,15 +31,18 @@ class SchedulesController < ApplicationController
   def update
     @schedule = Schedule.find(params[:id])
     if @schedule.update(params.require(:schedule).permit(:title, :start_date, :end_date, :all_day, :memo ))
+      flash[:notice] = "Updated schedule"
       redirect_to :schedules
     else
-      render :edit
+      flash[:alert] = "Unable to update appointment"
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @schedule = Schedule.find(params[:id])
     @saved = @schedule.destroy
+    flash[:notice] = "Appointment deleted"
     redirect_to :schedules
   end
 end

@@ -3,6 +3,8 @@
 <div Class="container">
   <h6>Appointment list</h6>
 
+  <%= render partial: "shared/inform" %>
+
   <div>
     <%= link_to "Add new", :new_schedule, class: "btn btn-secondary btn-sm mt-1 mb-1" %>
   </div>
@@ -44,7 +46,7 @@
 
   <footer>
     <ul class="list-group mb-3 count">
-      <li class="list-group-item d-flex justify-content-between align-items-center">
+      <li class="list-group-item d-flex justify-content-between align-items-center mb-2">
         Appointment total<span class="badge bg-primary rounded-pill"><%= @count %></span>
       </li>
       <li>today's date: <%= l @now, format: :short %></li>
