@@ -10,9 +10,9 @@ class Schedule < ApplicationRecord
   validate :memo_length
 
   def memo_length
-    memo_for_validation = memo.gsub(/[\r\n]/,"")
+    memo_for_validation = text_area.gsub(/[\r\n]/,"")
     if memo_for_validation.length > 500
-      errors.add(:memo, "Please enter within 500 characters")
+      errors.add(:text_area, "は500文字以内で入力してください")
     end
   end
 end

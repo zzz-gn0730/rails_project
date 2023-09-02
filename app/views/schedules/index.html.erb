@@ -1,11 +1,11 @@
-<h3>Schedule app</h3>
+<h3>Schedule</h3>
 
-<div Class="container">
-  <h6>Appointment list</h6>
+<div Class="main_container">
 
-  <%= render partial: "shared/inform" %>
+  <%= render "shared/inform" %>
 
-  <div>
+  <div class="btn_row">
+    <h6>Appointment list</h6>
     <%= link_to "Add new", :new_schedule, class: "btn btn-secondary btn-sm mt-1 mb-1" %>
   </div>
 
@@ -31,13 +31,13 @@
           <td><%= boolean_display(schedule. all_day) %></td>
           <td><%= l schedule.updated_at, format: :default %></td>
           <td>
-            <%= link_to "reference", schedule %>
+            <%= link_to "reference", schedule, class: "link-dark" %>
           </td>
           <td>
-            <%= link_to "edit", [:edit, schedule] %>
+            <%= link_to "edit", [:edit, schedule], class: "link-dark" %>
           </td>
           <td>
-            <%= link_to "delete", schedule, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+            <%= link_to "delete", schedule, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "link-dark" %>
           </td>
         </tr>
       <% end %>
@@ -45,11 +45,9 @@
   </table>
 
   <footer>
-    <ul class="list-group mb-3 count">
-      <li class="list-group-item d-flex justify-content-between align-items-center mb-2">
-        Appointment total<span class="badge bg-primary rounded-pill"><%= @count %></span>
-      </li>
-      <li>today's date: <%= l @now, format: :short %></li>
-    </ul>
+    <div class="list-group-item d-flex justify-content-between  mb-2 footer">
+      <p>Appointment totall:  <span class="badge bg-secondary rounded-pill"><%= @count %></span></p>
+      <p>today's date: <%= l @now, format: :short %></p>
+    </div>
   </footer>
 </div>

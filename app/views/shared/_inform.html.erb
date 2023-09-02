@@ -1,6 +1,6 @@
 <% flash.each do |key, value| %>
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-      <strong><%= content_tag(:p, value, class: "notice notice-#{key}") %></strong>
+  <div class="alert alert-primary alert-dismissible fade show" role="alert">
+    <strong><%= content_tag(:p, value, class: "notice notice-#{key}") %></strong>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 <% end %>
