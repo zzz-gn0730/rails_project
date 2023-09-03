@@ -1,0 +1,14 @@
+ja:
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M"
+      short: "%Y/%m/%d"
+  activerecord:
+      models:
+        scheduler: 予定
+  attributes:
+        scheduler:
+        title: タイトル
+        start_date: 開始日
+        end_date: 終了日
+        text_area: メモ

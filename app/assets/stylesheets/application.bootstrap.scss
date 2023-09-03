@@ -1,0 +1,55 @@
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+
+h3 {
+  text-align: center;
+  background-color: #5d627b;
+  color: #fff;
+  margin-bottom: 2em;
+}
+
+.count {
+  width: 30%;
+  list-style: none;
+}
+
+.btn_row {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+.footer {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  color: #5d627b;
+  border-top: solid 5px #30545d;
+}
+
+.main_container {
+  width: 80%;
+  padding: 0.5em 1em;
+  margin: 0 auto;
+  color: #5d627b;
+  background: white;
+  border-top: solid 5px #5d627b;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+
+.container {
+  width: 50%;
+  padding: 0.5em 1em;
+  margin: 0 auto;
+  color: #5d627b;
+  background: white;
+  border-top: solid 5px #5d627b;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+
+.Required {
+  color: red;
+}
+
+.error_message {
+  color: red;
+}
