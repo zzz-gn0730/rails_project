@@ -1,0 +1,33 @@
+<h3>Schedulet</h3>
+
+<div class="container mt-5">
+  <h5>Appointment details</h5>
+
+  <table class="table table-bordered mt-4">
+    <tr>
+      <th class="table-light">Title</th>
+      <td><%= @schedule.title %></td>
+    </tr>
+    <tr>
+      <th class="table-light">Start date</th>
+      <td><%=l @schedule.start_date, format: :short %></td>
+    </tr>
+    <tr>
+      <th class="table-light">End date</th>
+      <td><%= l @schedule.end_date, format: :short %></td>
+    </tr>
+    <tr>
+      <th class="table-light">All day</th>
+      <td><%= boolean_display(@schedule. all_day) %></td>
+    </tr>
+    <tr>
+      <th class="table-light">Memo</th>
+      <td><%= @schedule.text_area %></td>
+    </tr>
+  </table>
+
+  <div class="d-flex gap-2 mt-5">
+    <%= link_to "edit", edit_schedule_path(@schedule.id), class: "btn btn-secondary" %>
+    <%= link_to "back to index", :schedules, class: "btn btn-secondary" %>
+  </div>
+</div>
